@@ -1,0 +1,23 @@
+{
+  "name": "all2js",
+  "version": "1.0.0",
+  "description": "a universal parser that parse code to estree",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:declare": "tsc -d",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["parser", "estree"],
+  "author": "azurity",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/clone": "^0.1.30",
+    "@types/estree": "0.0.42",
+    "@types/node": "^13.5.0",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "clone": "^2.1.2"
+  }
+}
