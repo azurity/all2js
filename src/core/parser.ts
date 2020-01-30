@@ -272,20 +272,20 @@ export default class Parser {
           firstSet,
           this.nonterminator
         );
-        if (
-          !itemSet
-            .map(value => value.equal(newSet))
-            .reduce((pre, cur) => pre || cur, false)
-        ) {
-          this.machine[searchIndex].set(it, {
-            resolution: false,
-            aim: itemSet.length
-          });
+        let equalIndex = itemSet
+          .map(value => value.equal(newSet))
+          .indexOf(true);
+        if (equalIndex < 0) {
+          equalIndex = itemSet.length;
           itemSet.push(newSet);
           this.machine.push(
             new Map(newSet.resolution().map(val => [val.index, val.action]))
           );
         }
+        this.machine[searchIndex].set(it, {
+          resolution: false,
+          aim: equalIndex
+        });
       }
       searchIndex += 1;
     }
